@@ -21,7 +21,7 @@ body{
     perspective:1200px;
 }
 
-/* 🔥 Оранжевое свечение */
+/* Оранжевое свечение */
 .glow{
     position:absolute;
     width:600px;
@@ -47,35 +47,35 @@ body{
     to{transform:translateY(40px);}
 }
 
-/* 🎬 Видео блок */
+/* Видео */
 .video-section{
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-top:80px;
+    margin-top:60px;
     position:relative;
     z-index:2;
 }
 
 .video-section video{
-    width:70%;
-    max-width:900px;
-    border-radius:25px;
+    width:45%;
+    max-width:600px;
+    border-radius:20px;
     box-shadow:
         0 0 40px rgba(255,120,0,0.6),
-        0 30px 60px rgba(0,0,0,0.8);
-    transform:rotateX(10deg) rotateY(-10deg);
+        0 25px 60px rgba(0,0,0,0.9);
+    transform:rotateX(8deg) rotateY(-8deg);
     transition:0.5s;
 }
 
 .video-section video:hover{
-    transform:rotateX(0deg) rotateY(0deg) scale(1.03);
+    transform:rotateX(0deg) rotateY(0deg) scale(1.05);
     box-shadow:
         0 0 60px rgba(255,140,0,0.9),
         0 40px 80px rgba(0,0,0,1);
 }
 
-/* 🧡 Header */
+/* Header */
 header{
     text-align:center;
     padding:100px 20px 40px 20px;
@@ -98,7 +98,7 @@ header p{
     opacity:0.9;
 }
 
-/* 🧱 Карточки */
+/* Карточки */
 .section{
     padding:80px 20px;
     position:relative;
@@ -113,9 +113,9 @@ header p{
 }
 
 .card{
-    width:300px;
-    padding:30px;
-    border-radius:25px;
+    width:280px;
+    padding:25px;
+    border-radius:20px;
     background:linear-gradient(145deg,#111,#1b1b1b);
     border:1px solid #ff7a00;
     box-shadow:
@@ -134,22 +134,17 @@ header p{
 
 .card h3{
     margin-bottom:15px;
-    font-size:22px;
-}
-
-.card p{
-    opacity:0.8;
 }
 
 .price{
     margin-top:20px;
-    font-size:28px;
+    font-size:26px;
     font-weight:700;
     color:#ff9d00;
     text-shadow:0 0 15px rgba(255,120,0,0.7);
 }
 
-/* 🚀 Кнопка */
+/* Кнопка */
 .cta{
     text-align:center;
     margin-top:70px;
@@ -157,7 +152,7 @@ header p{
 
 .telegram-btn{
     display:inline-block;
-    padding:18px 40px;
+    padding:16px 35px;
     border-radius:50px;
     font-size:18px;
     font-weight:600;
@@ -173,18 +168,15 @@ header p{
     box-shadow:0 0 50px rgba(255,150,0,1);
 }
 
-/* 📱 Mobile */
+/* Mobile */
 @media(max-width:768px){
     .video-section video{
-        width:95%;
+        width:85%;
         transform:none;
     }
     .services{
         flex-direction:column;
         align-items:center;
-    }
-    .card{
-        width:90%;
     }
 }
 </style>
@@ -199,9 +191,9 @@ header p{
     <p>ვქმნი პროგრამებს და თანამედროვე ვებსაიტებს — მხოლოდ 1 ლარად 🚀</p>
 </header>
 
-<!-- 🎬 Центрированное видео -->
 <section class="video-section">
-    <video src="a.mp4" autoplay muted loop playsinline></video>
+    <!-- УБРАЛ muted и autoplay чтобы работал звук -->
+    <video src="a.mp4" controls></video>
 </section>
 
 <section class="section">
