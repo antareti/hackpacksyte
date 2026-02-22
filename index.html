@@ -15,30 +15,31 @@
 }
 
 body{
-    background:#0f0c29;
-    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-    color:white;
+    background:radial-gradient(circle at center,#111 0%,#000 70%);
+    color:#fff;
     overflow-x:hidden;
+    perspective:1200px;
 }
 
+/* 🔥 Оранжевое свечение */
 .glow{
     position:absolute;
-    width:500px;
-    height:500px;
-    background:radial-gradient(circle,#00f2fe55,transparent 70%);
-    filter:blur(100px);
-    animation:float 8s infinite alternate ease-in-out;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#ff7a00aa,transparent 70%);
+    filter:blur(120px);
+    animation:float 6s infinite alternate ease-in-out;
+    z-index:0;
 }
 
 .glow:nth-child(1){
-    top:-100px;
-    left:-100px;
+    top:-150px;
+    left:-150px;
 }
 
 .glow:nth-child(2){
-    bottom:-150px;
-    right:-100px;
-    background:radial-gradient(circle,#ff00cc55,transparent 70%);
+    bottom:-200px;
+    right:-150px;
 }
 
 @keyframes float{
@@ -46,26 +47,49 @@ body{
     to{transform:translateY(40px);}
 }
 
+/* 🎬 Видео блок */
+.video-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:80px;
+    position:relative;
+    z-index:2;
+}
+
+.video-section video{
+    width:70%;
+    max-width:900px;
+    border-radius:25px;
+    box-shadow:
+        0 0 40px rgba(255,120,0,0.6),
+        0 30px 60px rgba(0,0,0,0.8);
+    transform:rotateX(10deg) rotateY(-10deg);
+    transition:0.5s;
+}
+
+.video-section video:hover{
+    transform:rotateX(0deg) rotateY(0deg) scale(1.03);
+    box-shadow:
+        0 0 60px rgba(255,140,0,0.9),
+        0 40px 80px rgba(0,0,0,1);
+}
+
+/* 🧡 Header */
 header{
     text-align:center;
-    padding:100px 20px 60px 20px;
+    padding:100px 20px 40px 20px;
     position:relative;
-    z-index:1;
+    z-index:2;
 }
 
 header h1{
     font-size:52px;
     font-weight:800;
-    background:linear-gradient(90deg,#00f2fe,#ff00cc);
+    background:linear-gradient(90deg,#ff6a00,#ffae00);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    animation:shine 3s infinite linear;
-}
-
-@keyframes shine{
-    0%{filter:brightness(1);}
-    50%{filter:brightness(1.5);}
-    100%{filter:brightness(1);}
+    text-shadow:0 0 25px rgba(255,120,0,0.7);
 }
 
 header p{
@@ -74,57 +98,61 @@ header p{
     opacity:0.9;
 }
 
+/* 🧱 Карточки */
 .section{
-    padding:60px 20px;
+    padding:80px 20px;
     position:relative;
-    z-index:1;
+    z-index:2;
 }
 
 .services{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:30px;
-    margin-top:50px;
+    gap:40px;
 }
 
 .card{
     width:300px;
     padding:30px;
     border-radius:25px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,0.15);
-    transition:0.4s;
-    box-shadow:0 0 30px rgba(0,242,254,0.2);
+    background:linear-gradient(145deg,#111,#1b1b1b);
+    border:1px solid #ff7a00;
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.8),
+        inset 0 0 20px rgba(255,120,0,0.1);
+    transition:0.5s;
+    transform-style:preserve-3d;
 }
 
 .card:hover{
-    transform:translateY(-15px) scale(1.03);
-    box-shadow:0 0 40px rgba(255,0,204,0.4);
+    transform:rotateY(10deg) rotateX(10deg) scale(1.05);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,1),
+        0 0 40px rgba(255,120,0,0.6);
 }
 
 .card h3{
-    font-size:22px;
     margin-bottom:15px;
+    font-size:22px;
 }
 
 .card p{
-    opacity:0.85;
+    opacity:0.8;
 }
 
 .price{
     margin-top:20px;
     font-size:28px;
     font-weight:700;
-    background:linear-gradient(90deg,#00f2fe,#ff00cc);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    color:#ff9d00;
+    text-shadow:0 0 15px rgba(255,120,0,0.7);
 }
 
+/* 🚀 Кнопка */
 .cta{
     text-align:center;
-    margin-top:60px;
+    margin-top:70px;
 }
 
 .telegram-btn{
@@ -134,30 +162,22 @@ header p{
     font-size:18px;
     font-weight:600;
     text-decoration:none;
-    color:white;
-    background:linear-gradient(90deg,#00f2fe,#ff00cc);
-    box-shadow:0 0 25px rgba(0,242,254,0.5);
+    color:black;
+    background:linear-gradient(90deg,#ff6a00,#ffae00);
+    box-shadow:0 0 30px rgba(255,120,0,0.7);
     transition:0.4s;
 }
 
 .telegram-btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 40px rgba(255,0,204,0.7);
-}
-
-footer{
-    text-align:center;
-    padding:40px 20px;
-    margin-top:80px;
-    background:rgba(0,0,0,0.3);
-    backdrop-filter:blur(10px);
-    border-top:1px solid rgba(255,255,255,0.1);
+    transform:scale(1.1);
+    box-shadow:0 0 50px rgba(255,150,0,1);
 }
 
 /* 📱 Mobile */
 @media(max-width:768px){
-    header h1{
-        font-size:36px;
+    .video-section video{
+        width:95%;
+        transform:none;
     }
     .services{
         flex-direction:column;
@@ -178,6 +198,11 @@ footer{
     <h1>ყველაფერი ერთ ლარად</h1>
     <p>ვქმნი პროგრამებს და თანამედროვე ვებსაიტებს — მხოლოდ 1 ლარად 🚀</p>
 </header>
+
+<!-- 🎬 Центрированное видео -->
+<section class="video-section">
+    <video src="a.mp4" autoplay muted loop playsinline></video>
+</section>
 
 <section class="section">
     <div class="services">
@@ -207,7 +232,7 @@ footer{
     </div>
 </section>
 
-<footer>
+<footer style="text-align:center;padding:40px;background:#0a0a0a;border-top:1px solid #ff7a00;">
     © 2026 ყველაფერი ერთ ლარად | Premium Digital Service
 </footer>
 
