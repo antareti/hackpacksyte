@@ -4,253 +4,233 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ყველაფერი ერთ ლარად</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
 html{scroll-behavior:smooth;}
 body{
-    background:radial-gradient(circle at center,#111 0%,#000 70%);
-    color:#fff;
-    overflow-x:hidden;
+background:linear-gradient(135deg,#0f0f0f,#000);
+color:#fff;
+overflow-x:hidden;
 }
 
-/* Glow */
-.glow{
-    position:absolute;
-    width:600px;height:600px;
-    background:radial-gradient(circle,#ff7a00aa,transparent 70%);
-    filter:blur(120px);
-    animation:float 6s infinite alternate ease-in-out;
-    z-index:0;
+/* Animated background grid */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background-image:linear-gradient(rgba(255,140,0,0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,140,0,0.05) 1px, transparent 1px);
+background-size:60px 60px;
+animation:moveGrid 20s linear infinite;
+z-index:-1;
 }
-.glow:nth-child(1){top:-150px;left:-150px;}
-.glow:nth-child(2){bottom:-200px;right:-150px;}
-@keyframes float{from{transform:translateY(0);}to{transform:translateY(40px);}}
+@keyframes moveGrid{
+from{transform:translate(0,0);}
+to{transform:translate(-60px,-60px);}
+}
 
 /* NAV */
 nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:#000000cc;
-    backdrop-filter:blur(10px);
-    padding:15px;
-    text-align:center;
-    z-index:10;
+position:fixed;width:100%;top:0;
+backdrop-filter:blur(15px);
+background:rgba(0,0,0,0.6);
+padding:18px;
+text-align:center;
+z-index:10;
+border-bottom:1px solid rgba(255,140,0,0.3);
 }
 nav a{
-    margin:0 20px;
-    text-decoration:none;
-    color:#ff9d00;
-    font-weight:600;
+margin:0 20px;
+text-decoration:none;
+color:#ff9d00;
+font-weight:600;
+transition:0.3s;
 }
 nav a:hover{color:#fff}
 
-/* Header */
+/* HEADER */
 header{
-    text-align:center;
-    padding:140px 20px 60px;
-    position:relative;
-    z-index:2;
+text-align:center;
+padding:160px 20px 80px;
 }
 header h1{
-    font-size:52px;
-    font-weight:800;
-    background:linear-gradient(90deg,#ff6a00,#ffae00);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+font-size:64px;
+font-weight:800;
+background:linear-gradient(90deg,#ff6a00,#ffae00,#ff6a00);
+background-size:200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 4s infinite linear;
 }
-header p{margin-top:20px;font-size:20px;opacity:0.9}
-
-/* Video */
-.video-section{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px 20px;
-    position:relative;
-    z-index:2;
+@keyframes gradientMove{
+0%{background-position:0%}
+100%{background-position:200%}
 }
-.video-section video{
-    width:50%;
-    max-width:650px;
-    border-radius:25px;
-    box-shadow:
-        0 0 40px rgba(255,120,0,0.6),
-        0 25px 60px rgba(0,0,0,0.9);
-    transform:rotateX(8deg) rotateY(-8deg);
-    transition:0.6s;
-}
-.video-section video:hover{
-    transform:rotateX(0deg) rotateY(0deg) scale(1.05);
-    box-shadow:
-        0 0 60px rgba(255,140,0,0.9),
-        0 40px 80px rgba(0,0,0,1);
-}
-@media(max-width:768px){
-    .video-section video{
-        width:90%;
-        transform:none;
-    }
+header p{
+margin-top:25px;
+font-size:22px;
+opacity:0.85;
 }
 
-/* Sections */
+/* GLASS CARD */
 .section{
-    padding:80px 20px;
-    position:relative;
-    z-index:2;
-    text-align:center;
+padding:100px 20px;
+text-align:center;
 }
-h2{margin-bottom:40px;font-size:32px;color:#ff9d00}
+h2{
+margin-bottom:50px;
+font-size:36px;
+color:#ff9d00;
+}
 
-/* Cards */
-.services,.advantages,.reviews{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
+.flex{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
 }
+
 .card{
-    width:280px;
-    padding:25px;
-    border-radius:20px;
-    background:#111;
-    border:1px solid #ff7a00;
-    box-shadow:0 15px 40px rgba(0,0,0,0.8);
-    transition:0.6s;
-    opacity:0;
-    transform:translateY(40px);
+width:300px;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,140,0,0.4);
+box-shadow:0 20px 50px rgba(0,0,0,0.8);
+transition:0.5s;
+transform:translateY(40px);
+opacity:0;
 }
 .card.show{
-    opacity:1;
-    transform:translateY(0);
+transform:translateY(0);
+opacity:1;
 }
 .card:hover{
-    transform:scale(1.05);
+transform:scale(1.07);
+border:1px solid #ff9d00;
 }
+
 .price{
-    margin-top:20px;
-    font-size:24px;
-    font-weight:700;
-    color:#ff9d00;
+margin-top:20px;
+font-size:28px;
+font-weight:800;
+color:#ffae00;
 }
 
-/* Counter */
-.counter{
-    font-size:48px;
-    font-weight:800;
-    color:#ff9d00;
+/* VIDEO */
+.video-section{
+display:flex;
+justify-content:center;
+padding:60px 20px;
+}
+.video-section video{
+width:55%;
+max-width:700px;
+border-radius:30px;
+box-shadow:0 30px 80px rgba(255,140,0,0.3);
+transition:0.6s;
+}
+.video-section video:hover{
+transform:scale(1.05);
+}
+@media(max-width:768px){
+.video-section video{width:95%;}
 }
 
-/* Button */
+/* BUTTON */
 .telegram-btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:16px 35px;
-    border-radius:50px;
-    font-size:18px;
-    font-weight:600;
-    text-decoration:none;
-    color:black;
-    background:linear-gradient(90deg,#ff6a00,#ffae00);
-    box-shadow:0 0 30px rgba(255,120,0,0.7);
-    transition:0.4s;
-    border:none;
-    cursor:pointer;
+display:inline-block;
+margin-top:35px;
+padding:18px 40px;
+border-radius:60px;
+font-size:18px;
+font-weight:700;
+text-decoration:none;
+color:black;
+background:linear-gradient(90deg,#ff6a00,#ffae00);
+box-shadow:0 0 30px rgba(255,140,0,0.7);
+transition:0.4s;
 }
 .telegram-btn:hover{
-    transform:scale(1.1);
+transform:scale(1.1);
 }
 
-/* Payment */
-.payment-box{
-    margin-top:30px;
-    padding:20px;
-    border:1px solid #ff7a00;
-    border-radius:15px;
-    display:none;
-    background:#0f0f0f;
+/* FAQ */
+.faq{
+max-width:800px;
+margin:0 auto;
+text-align:left;
+}
+.faq-item{
+margin-bottom:25px;
+padding:20px;
+border-radius:15px;
+background:rgba(255,255,255,0.05);
 }
 
-/* Footer */
+/* FOOTER */
 footer{
-    text-align:center;
-    padding:40px;
-    background:#0a0a0a;
-    border-top:1px solid #ff7a00;
+text-align:center;
+padding:50px;
+border-top:1px solid rgba(255,140,0,0.3);
+background:rgba(0,0,0,0.6);
 }
 </style>
 </head>
 <body>
 
-<div class="glow"></div>
-<div class="glow"></div>
-
 <nav>
 <a href="#services">სერვისები</a>
-<a href="#advantages">უპირატესობები</a>
-<a href="#reviews">Отзывы</a>
+<a href="#how">როგორ ვმუშაობ</a>
+<a href="#faq">FAQ</a>
 <a href="#contact">კონტაქტი</a>
 </nav>
 
 <header>
 <h1>ყველაფერი ერთ ლარად</h1>
-<p>ვქმნი პროგრამებს და თანამედროვე ვებსაიტებს — მხოლოდ 1 ლარად 🚀</p>
+<p>Premium დიზაინი • სწრაფი შესრულება • მხოლოდ 1 ლარი 🚀</p>
 </header>
 
 <section class="video-section">
-<video src="a.mp4" controls></video>
+<video src="a.mp4" autoplay muted loop playsinline controls></video>
 </section>
 
 <section id="services" class="section">
 <h2>სერვისები</h2>
-<div class="services">
+<div class="flex">
 <div class="card"><h3>ვებსაიტები</h3><p>თანამედროვე და სწრაფი.</p><div class="price">1 ლარი</div></div>
 <div class="card"><h3>პროგრამები</h3><p>Python და ავტომატიზაცია.</p><div class="price">1 ლარი</div></div>
 <div class="card"><h3>ინდივიდუალური</h3><p>თქვენი იდეა — ჩემი კოდი.</p><div class="price">1 ლარი</div></div>
 </div>
 </section>
 
-<section id="advantages" class="section">
-<h2>რატომ 1 ლარი?</h2>
-<div class="advantages">
-<div class="card">🚀 ვაგროვებ პორტფოლიოს</div>
-<div class="card">⚡ სწრაფი შესრულება</div>
-<div class="card">📱 მობილური ადაპტაცია</div>
-<div class="card">🎨 პრემიუმ დიზაინი</div>
+<section id="how" class="section">
+<h2>როგორ ვმუშაობ</h2>
+<div class="flex">
+<div class="card">1️⃣ მწერთ Telegram-ზე</div>
+<div class="card">2️⃣ განვიხილავთ დავალებას</div>
+<div class="card">3️⃣ ვქმნი პროტოტიპს</div>
+<div class="card">4️⃣ იღებთ დასრულებულ პროექტს</div>
 </div>
 </section>
 
-<section class="section">
-<h2>დასრულებული პროექტები</h2>
-<div class="counter" id="counter">0</div>
-</section>
-
-<section id="reviews" class="section">
-<h2>Отзывы</h2>
-<div class="reviews">
-<div class="card">⭐⭐⭐⭐⭐<br>ძალიან სწრაფი და ხარისხიანი!<br>— გიორგი</div>
-<div class="card">⭐⭐⭐⭐⭐<br>საუკეთესო ფასი ბაზარზე!<br>— ნიკა</div>
+<section id="faq" class="section">
+<h2>FAQ</h2>
+<div class="faq">
+<div class="faq-item"><b>მართლა 1 ლარი?</b><br>დიახ, ვაგროვებ პორტფოლიოს.</div>
+<div class="faq-item"><b>რამდენი დრო სჭირდება?</b><br>საშუალოდ 1–3 დღე.</div>
+<div class="faq-item"><b>არის თუ არა რედაქტირება?</b><br>კი, მცირე ცვლილებები შედის.</div>
 </div>
 </section>
 
 <section id="contact" class="section">
 <h2>შეკვეთა</h2>
-
-<a class="telegram-btn" href="https://t.me/ertlarad" target="_blank">
-შეკვეთა Telegram-ზე
-</a>
-
-<br>
-
-<button class="telegram-btn" onclick="showPayment()">გადახდის რეკვიზიტები</button>
-
-<div class="payment-box" id="paymentBox">
-<p>ბანკი: HashBank</p>
-<p>ბარათის ნომერი: 4787 6401 2507 8950</p>
-</div>
-
+<a class="telegram-btn" href="https://t.me/ertlarad" target="_blank">დამიკავშირდი Telegram-ზე</a>
 </section>
 
 <footer>
@@ -258,31 +238,13 @@ footer{
 </footer>
 
 <script>
-// Scroll animation
 const cards=document.querySelectorAll('.card');
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
+if(entry.isIntersecting){entry.target.classList.add('show');}
 });
 },{threshold:0.2});
 cards.forEach(card=>observer.observe(card));
-
-// Counter
-let count=0;
-let counter=document.getElementById("counter");
-let interval=setInterval(()=>{
-count++;
-counter.innerText=count;
-if(count>=23)clearInterval(interval);
-},50);
-
-// Payment toggle
-function showPayment(){
-let box=document.getElementById("paymentBox");
-box.style.display = box.style.display==="block" ? "none" : "block";
-}
 </script>
 
 </body>
