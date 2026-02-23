@@ -3,248 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ყველაფერი ერთ ლარად</title>
+<title>ყველაფერი ერთ ლარად | Digital Studio 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
-html{scroll-behavior:smooth;}
-body{
-background:linear-gradient(135deg,#0f0f0f,#000);
-color:#fff;
-overflow-x:hidden;
-}
-
-/* Animated background grid */
-body::before{
-content:"";
-position:fixed;
-width:200%;
-height:200%;
-background-image:linear-gradient(rgba(255,140,0,0.05) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,140,0,0.05) 1px, transparent 1px);
-background-size:60px 60px;
-animation:moveGrid 20s linear infinite;
-z-index:-1;
-}
-@keyframes moveGrid{
-from{transform:translate(0,0);}
-to{transform:translate(-60px,-60px);}
-}
+body{background:#000;color:#fff;overflow-x:hidden;}
+canvas{position:fixed;top:0;left:0;z-index:-1}
 
 /* NAV */
 nav{
 position:fixed;width:100%;top:0;
-backdrop-filter:blur(15px);
 background:rgba(0,0,0,0.6);
-padding:18px;
-text-align:center;
-z-index:10;
+backdrop-filter:blur(20px);
+padding:18px;text-align:center;z-index:10;
 border-bottom:1px solid rgba(255,140,0,0.3);
 }
 nav a{
-margin:0 20px;
-text-decoration:none;
-color:#ff9d00;
-font-weight:600;
-transition:0.3s;
+margin:0 15px;text-decoration:none;
+color:#ff9d00;font-weight:600;
+transition:.3s;
 }
 nav a:hover{color:#fff}
 
-/* HEADER */
-header{
-text-align:center;
-padding:160px 20px 80px;
+/* HERO */
+.hero{
+height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+padding:20px;
 }
-header h1{
-font-size:64px;
+.hero h1{
+font-size:clamp(40px,6vw,80px);
 font-weight:800;
 background:linear-gradient(90deg,#ff6a00,#ffae00,#ff6a00);
 background-size:200%;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:gradientMove 4s infinite linear;
+animation:gradientMove 6s linear infinite;
 }
 @keyframes gradientMove{
 0%{background-position:0%}
 100%{background-position:200%}
 }
-header p{
+.hero p{
 margin-top:25px;
-font-size:22px;
-opacity:0.85;
+font-size:clamp(16px,2vw,22px);
+opacity:.85;
 }
 
-/* GLASS CARD */
-.section{
-padding:100px 20px;
-text-align:center;
+.btn{
+margin-top:40px;
+padding:16px 40px;
+border-radius:50px;
+background:linear-gradient(90deg,#ff6a00,#ffae00);
+color:black;
+font-weight:700;
+text-decoration:none;
+transition:.4s;
+box-shadow:0 0 40px rgba(255,140,0,.6);
 }
-h2{
-margin-bottom:50px;
-font-size:36px;
-color:#ff9d00;
-}
+.btn:hover{transform:scale(1.08);}
 
-.flex{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:40px;
-}
+/* SECTION */
+.section{padding:120px 20px;text-align:center;}
+h2{font-size:36px;margin-bottom:50px;color:#ff9d00;}
+
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;}
 
 .card{
-width:300px;
-padding:30px;
-border-radius:25px;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,140,0,0.4);
-box-shadow:0 20px 50px rgba(0,0,0,0.8);
-transition:0.5s;
-transform:translateY(40px);
-opacity:0;
-}
-.card.show{
-transform:translateY(0);
-opacity:1;
+width:300px;padding:35px;border-radius:25px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,140,0,.3);
+transition:.5s;
 }
 .card:hover{
-transform:scale(1.07);
+transform:translateY(-10px) scale(1.05);
 border:1px solid #ff9d00;
 }
 
-.price{
-margin-top:20px;
-font-size:28px;
-font-weight:800;
-color:#ffae00;
-}
-
-/* VIDEO */
-.video-section{
-display:flex;
-justify-content:center;
-padding:60px 20px;
-}
-.video-section video{
-width:55%;
-max-width:700px;
-border-radius:30px;
-box-shadow:0 30px 80px rgba(255,140,0,0.3);
-transition:0.6s;
-}
-.video-section video:hover{
-transform:scale(1.05);
-}
-@media(max-width:768px){
-.video-section video{width:95%;}
-}
-
-/* BUTTON */
-.telegram-btn{
+/* PAYMENT */
+.payment-box{
 display:inline-block;
-margin-top:35px;
-padding:18px 40px;
-border-radius:60px;
-font-size:18px;
-font-weight:700;
-text-decoration:none;
+padding:30px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
+border:1px solid #ff6a00;
+margin-top:30px;
+}
+.copy-btn{
+margin-top:15px;
+padding:10px 25px;
+border:none;
+border-radius:30px;
+background:#ff9d00;
 color:black;
-background:linear-gradient(90deg,#ff6a00,#ffae00);
-box-shadow:0 0 30px rgba(255,140,0,0.7);
-transition:0.4s;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
 }
-.telegram-btn:hover{
-transform:scale(1.1);
-}
+.copy-btn:hover{transform:scale(1.05);}
 
-/* FAQ */
-.faq{
-max-width:800px;
-margin:0 auto;
-text-align:left;
+/* MOBILE PREMIUM */
+@media(max-width:768px){
+.cards{flex-direction:column;align-items:center;}
+.section{padding:90px 15px;}
+nav{padding:15px;font-size:14px;}
 }
-.faq-item{
-margin-bottom:25px;
-padding:20px;
-border-radius:15px;
-background:rgba(255,255,255,0.05);
-}
-
-/* FOOTER */
 footer{
-text-align:center;
-padding:50px;
-border-top:1px solid rgba(255,140,0,0.3);
-background:rgba(0,0,0,0.6);
+padding:60px;text-align:center;
+border-top:1px solid rgba(255,140,0,.3);
+background:#050505;
 }
 </style>
 </head>
 <body>
 
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" src="music.mp3" autoplay loop muted></audio>
+
 <nav>
 <a href="#services">სერვისები</a>
-<a href="#how">როგორ ვმუშაობ</a>
-<a href="#faq">FAQ</a>
+<a href="#payment">გადახდა</a>
 <a href="#contact">კონტაქტი</a>
 </nav>
 
-<header>
+<section class="hero">
 <h1>ყველაფერი ერთ ლარად</h1>
-<p>Premium დიზაინი • სწრაფი შესრულება • მხოლოდ 1 ლარი 🚀</p>
-</header>
-
-<section class="video-section">
-<video src="a.mp4" autoplay muted loop playsinline controls></video>
+<p>Digital Studio 2026 • Cinematic Experience</p>
+<a href="https://t.me/ertlarad" target="_blank" class="btn">დამიკავშირდი</a>
 </section>
 
 <section id="services" class="section">
 <h2>სერვისები</h2>
-<div class="flex">
-<div class="card"><h3>ვებსაიტები</h3><p>თანამედროვე და სწრაფი.</p><div class="price">1 ლარი</div></div>
-<div class="card"><h3>პროგრამები</h3><p>Python და ავტომატიზაცია.</p><div class="price">1 ლარი</div></div>
-<div class="card"><h3>ინდივიდუალური</h3><p>თქვენი იდეა — ჩემი კოდი.</p><div class="price">1 ლარი</div></div>
+<div class="cards">
+<div class="card"><h3>ვებსაიტები</h3><p>Premium UX/UI დიზაინი</p></div>
+<div class="card"><h3>პროგრამები</h3><p>Python & Automation</p></div>
+<div class="card"><h3>Custom</h3><p>თქვენი იდეა — ჩემი კოდი</p></div>
 </div>
 </section>
 
-<section id="how" class="section">
-<h2>როგორ ვმუშაობ</h2>
-<div class="flex">
-<div class="card">1️⃣ მწერთ Telegram-ზე</div>
-<div class="card">2️⃣ განვიხილავთ დავალებას</div>
-<div class="card">3️⃣ ვქმნი პროტოტიპს</div>
-<div class="card">4️⃣ იღებთ დასრულებულ პროექტს</div>
-</div>
-</section>
-
-<section id="faq" class="section">
-<h2>FAQ</h2>
-<div class="faq">
-<div class="faq-item"><b>მართლა 1 ლარი?</b><br>დიახ, ვაგროვებ პორტფოლიოს.</div>
-<div class="faq-item"><b>რამდენი დრო სჭირდება?</b><br>საშუალოდ 1–3 დღე.</div>
-<div class="faq-item"><b>არის თუ არა რედაქტირება?</b><br>კი, მცირე ცვლილებები შედის.</div>
+<section id="payment" class="section">
+<h2>გადახდის რეკვიზიტები</h2>
+<div class="payment-box">
+<p><b>ბანკი:</b> HashBank</p>
+<p id="cardNumber"><b>ბარათი:</b> 4787 6401 2507 8950</p>
+<button class="copy-btn" onclick="copyCard()">კოპირება</button>
 </div>
 </section>
 
 <section id="contact" class="section">
-<h2>შეკვეთა</h2>
-<a class="telegram-btn" href="https://t.me/ertlarad" target="_blank">დამიკავშირდი Telegram-ზე</a>
+<h2>კონტაქტი</h2>
+<a href="https://t.me/ertlarad" target="_blank" class="btn">Telegram @ertlarad</a>
 </section>
 
 <footer>
-© 2026 ყველაფერი ერთ ლარად | Premium Digital Service
+© 2026 Digital Studio • Premium Experience
 </footer>
 
 <script>
-const cards=document.querySelectorAll('.card');
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add('show');}
-});
-},{threshold:0.2});
-cards.forEach(card=>observer.observe(card));
+/* THREE JS BACKGROUND */
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const geometry=new THREE.BufferGeometry();
+const vertices=[];
+for(let i=0;i<5000;i++){
+vertices.push((Math.random()-0.5)*2000);
+vertices.push((Math.random()-0.5)*2000);
+vertices.push((Math.random()-0.5)*2000);
+}
+geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
+const material=new THREE.PointsMaterial({color:0xff9d00,size:2});
+const particles=new THREE.Points(geometry,material);
+scene.add(particles);
+camera.position.z=500;
+
+function animate(){
+requestAnimationFrame(animate);
+particles.rotation.x+=0.0005;
+particles.rotation.y+=0.0005;
+renderer.render(scene,camera);
+}
+animate();
+
+/* COPY CARD */
+function copyCard(){
+navigator.clipboard.writeText("4787640125078950");
+alert("ბარათი დაკოპირდა ✔");
+}
+
+/* SOUND UNMUTE AFTER CLICK */
+document.addEventListener("click",()=>{
+let music=document.getElementById("bgMusic");
+music.muted=false;
+music.play();
+},{once:true});
 </script>
 
 </body>
