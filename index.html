@@ -7,178 +7,105 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
 body{
     background:radial-gradient(circle at center,#111 0%,#000 70%);
     color:#fff;
     overflow-x:hidden;
-    perspective:1200px;
 }
 
-/* Оранжевое свечение */
+/* Glow */
 .glow{
     position:absolute;
-    width:600px;
-    height:600px;
+    width:600px;height:600px;
     background:radial-gradient(circle,#ff7a00aa,transparent 70%);
     filter:blur(120px);
     animation:float 6s infinite alternate ease-in-out;
     z-index:0;
 }
+.glow:nth-child(1){top:-150px;left:-150px;}
+.glow:nth-child(2){bottom:-200px;right:-150px;}
+@keyframes float{from{transform:translateY(0);}to{transform:translateY(40px);}}
 
-.glow:nth-child(1){
-    top:-150px;
-    left:-150px;
+/* NAV */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:#000000cc;
+    backdrop-filter:blur(10px);
+    padding:15px;
+    text-align:center;
+    z-index:10;
 }
-
-.glow:nth-child(2){
-    bottom:-200px;
-    right:-150px;
+nav a{
+    margin:0 20px;
+    text-decoration:none;
+    color:#ff9d00;
+    font-weight:600;
 }
-
-@keyframes float{
-    from{transform:translateY(0px);}
-    to{transform:translateY(40px);}
-}
-
-/* Видео */
-.video-section{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:60px;
-    position:relative;
-    z-index:2;
-}
-
-.video-section video{
-    width:45%;
-    max-width:600px;
-    border-radius:20px;
-    box-shadow:
-        0 0 40px rgba(255,120,0,0.6),
-        0 25px 60px rgba(0,0,0,0.9);
-    transform:rotateX(8deg) rotateY(-8deg);
-    transition:0.5s;
-}
-
-.video-section video:hover{
-    transform:rotateX(0deg) rotateY(0deg) scale(1.05);
-    box-shadow:
-        0 0 60px rgba(255,140,0,0.9),
-        0 40px 80px rgba(0,0,0,1);
-}
+nav a:hover{color:#fff}
 
 /* Header */
 header{
     text-align:center;
-    padding:100px 20px 40px 20px;
+    padding:140px 20px 60px;
     position:relative;
     z-index:2;
 }
-
 header h1{
     font-size:52px;
     font-weight:800;
     background:linear-gradient(90deg,#ff6a00,#ffae00);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    text-shadow:0 0 25px rgba(255,120,0,0.7);
 }
+header p{margin-top:20px;font-size:20px;opacity:0.9}
 
-header p{
-    margin-top:20px;
-    font-size:20px;
-    opacity:0.9;
+/* Sections */
+.section{padding:80px 20px;position:relative;z-index:2;text-align:center;}
+h2{margin-bottom:40px;font-size:32px;color:#ff9d00}
+
+/* Cards */
+.services, .advantages, .reviews{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:30px;
 }
-
-/* Карточки */
-.section{
-    padding:80px 20px;
-    position:relative;
-    z-index:2;
-}
-
-.services{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:40px;
-}
-
 .card{
-    width:280px;
-    padding:25px;
-    border-radius:20px;
-    background:linear-gradient(145deg,#111,#1b1b1b);
-    border:1px solid #ff7a00;
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.8),
-        inset 0 0 20px rgba(255,120,0,0.1);
-    transition:0.5s;
-    transform-style:preserve-3d;
+    width:280px;padding:25px;border-radius:20px;
+    background:#111;border:1px solid #ff7a00;
+    box-shadow:0 15px 40px rgba(0,0,0,0.8);
+    transition:0.5s;opacity:0;transform:translateY(40px);
 }
+.card.show{opacity:1;transform:translateY(0);}
+.card:hover{transform:scale(1.05);}
+.price{margin-top:20px;font-size:24px;font-weight:700;color:#ff9d00}
 
-.card:hover{
-    transform:rotateY(10deg) rotateX(10deg) scale(1.05);
-    box-shadow:
-        0 25px 60px rgba(0,0,0,1),
-        0 0 40px rgba(255,120,0,0.6);
-}
+/* Counter */
+.counter{font-size:48px;font-weight:800;color:#ff9d00}
 
-.card h3{
-    margin-bottom:15px;
-}
-
-.price{
-    margin-top:20px;
-    font-size:26px;
-    font-weight:700;
-    color:#ff9d00;
-    text-shadow:0 0 15px rgba(255,120,0,0.7);
-}
-
-/* Кнопка */
-.cta{
-    text-align:center;
-    margin-top:70px;
-}
-
+/* Button */
 .telegram-btn{
-    display:inline-block;
-    padding:16px 35px;
-    border-radius:50px;
-    font-size:18px;
-    font-weight:600;
-    text-decoration:none;
-    color:black;
-    background:linear-gradient(90deg,#ff6a00,#ffae00);
+    display:inline-block;margin-top:30px;
+    padding:16px 35px;border-radius:50px;
+    font-size:18px;font-weight:600;text-decoration:none;
+    color:black;background:linear-gradient(90deg,#ff6a00,#ffae00);
     box-shadow:0 0 30px rgba(255,120,0,0.7);
     transition:0.4s;
 }
+.telegram-btn:hover{transform:scale(1.1);}
 
-.telegram-btn:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 50px rgba(255,150,0,1);
+/* Payment */
+.payment-box{
+    margin-top:30px;
+    padding:20px;
+    border:1px solid #ff7a00;
+    border-radius:15px;
+    display:none;
 }
 
-/* Mobile */
-@media(max-width:768px){
-    .video-section video{
-        width:85%;
-        transform:none;
-    }
-    .services{
-        flex-direction:column;
-        align-items:center;
-    }
-}
+/* Footer */
+footer{text-align:center;padding:40px;background:#0a0a0a;border-top:1px solid #ff7a00;}
 </style>
 </head>
 <body>
@@ -186,47 +113,96 @@ header p{
 <div class="glow"></div>
 <div class="glow"></div>
 
+<nav>
+<a href="#services">სერვისები</a>
+<a href="#advantages">უპირატესობები</a>
+<a href="#reviews">Отзывы</a>
+<a href="#contact">კონტაქტი</a>
+</nav>
+
 <header>
-    <h1>ყველაფერი ერთ ლარად</h1>
-    <p>ვქმნი პროგრამებს და თანამედროვე ვებსაიტებს — მხოლოდ 1 ლარად 🚀</p>
+<h1>ყველაფერი ერთ ლარად</h1>
+<p>ვქმნი პროგრამებს და თანამედროვე ვებსაიტებს — მხოლოდ 1 ლარად 🚀</p>
 </header>
 
-<section class="video-section">
-    <!-- УБРАЛ muted и autoplay чтобы работал звук -->
-    <video src="a.mp4" controls></video>
+<section id="services" class="section">
+<h2>სერვისები</h2>
+<div class="services">
+<div class="card"><h3>ვებსაიტები</h3><p>თანამედროვე და სწრაფი.</p><div class="price">1 ლარი</div></div>
+<div class="card"><h3>პროგრამები</h3><p>Python და ავტომატიზაცია.</p><div class="price">1 ლარი</div></div>
+<div class="card"><h3>ინდივიდუალური</h3><p>თქვენი იდეა — ჩემი კოდი.</p><div class="price">1 ლარი</div></div>
+</div>
+</section>
+
+<section id="advantages" class="section">
+<h2>რატომ 1 ლარი?</h2>
+<div class="advantages">
+<div class="card">🚀 ვაგროვებ პორტფოლიოს</div>
+<div class="card">⚡ სწრაფი შესრულება</div>
+<div class="card">📱 მობილური ადაპტაცია</div>
+<div class="card">🎨 პრემიუმ დიზაინი</div>
+</div>
 </section>
 
 <section class="section">
-    <div class="services">
-        <div class="card">
-            <h3>ვებსაიტების შექმნა</h3>
-            <p>პრემიუმ დიზაინი, სწრაფი ჩატვირთვა და სრულად მობილური ადაპტაცია.</p>
-            <div class="price">1 ლარი</div>
-        </div>
-
-        <div class="card">
-            <h3>პროგრამების შექმნა</h3>
-            <p>Python პროგრამები, ავტომატიზაცია და ინდივიდუალური პროექტები.</p>
-            <div class="price">1 ლარი</div>
-        </div>
-
-        <div class="card">
-            <h3>ინდივიდუალური შეკვეთა</h3>
-            <p>თქვენი იდეა — ჩემი კოდი. სწრაფად და ხარისხიანად.</p>
-            <div class="price">1 ლარი</div>
-        </div>
-    </div>
-
-    <div class="cta">
-        <a class="telegram-btn" href="https://t.me/ertlarad" target="_blank">
-            შეკვეთა Telegram-ზე
-        </a>
-    </div>
+<h2>დასრულებული პროექტები</h2>
+<div class="counter" id="counter">0</div>
 </section>
 
-<footer style="text-align:center;padding:40px;background:#0a0a0a;border-top:1px solid #ff7a00;">
-    © 2026 ყველაფერი ერთ ლარად | Premium Digital Service
+<section id="reviews" class="section">
+<h2>Отзывы</h2>
+<div class="reviews">
+<div class="card">⭐⭐⭐⭐⭐<br>ძალიან სწრაფი და ხარისხიანი!<br>— გიორგი</div>
+<div class="card">⭐⭐⭐⭐⭐<br>საუკეთესო ფასი ბაზარზე!<br>— ნიკა</div>
+</div>
+</section>
+
+<section id="contact" class="section">
+<h2>შეკვეთა</h2>
+<a class="telegram-btn" href="https://t.me/ertlarad" target="_blank">
+შეკვეთა Telegram-ზე
+</a>
+
+<div>
+<button class="telegram-btn" onclick="showPayment()">გადახდის რეკვიზიტები</button>
+<div class="payment-box" id="paymentBox">
+<p>ბანკი: HashBank</p>
+<p>ბარათის ნომერი: 4787 6401 2507 8950</p>
+</div>
+</div>
+
+</section>
+
+<footer>
+© 2026 ყველაფერი ერთ ლარად | Premium Digital Service
 </footer>
+
+<script>
+// Scroll animation
+const cards=document.querySelectorAll('.card');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+},{threshold:0.2});
+cards.forEach(card=>observer.observe(card));
+
+// Counter animation
+let count=0;
+let counter=document.getElementById("counter");
+let interval=setInterval(()=>{
+count++;
+counter.innerText=count;
+if(count>=23)clearInterval(interval);
+},50);
+
+// Show payment
+function showPayment(){
+document.getElementById("paymentBox").style.display="block";
+}
+</script>
 
 </body>
 </html>
