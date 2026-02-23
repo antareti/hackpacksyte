@@ -11,17 +11,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
 body{background:#000;color:#fff;overflow-x:hidden;}
-canvas{position:fixed;top:0;left:0;z-index:-2}
-
-/* VIDEO BACKGROUND */
-#bgVideo{
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-object-fit:cover;
-z-index:-3;
-filter:brightness(0.35);
-}
+canvas{position:fixed;top:0;left:0;z-index:-1}
 
 /* NAV */
 nav{
@@ -40,12 +30,8 @@ nav a:hover{color:#fff}
 
 /* HERO */
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
+height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
 padding:20px;
 }
 .hero h1{
@@ -80,36 +66,14 @@ box-shadow:0 0 40px rgba(255,140,0,.6);
 }
 .btn:hover{transform:scale(1.08);}
 
-/* SOUND BUTTON */
-.sound-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-padding:12px 20px;
-border-radius:30px;
-background:#ff9d00;
-color:black;
-font-weight:600;
-border:none;
-cursor:pointer;
-z-index:20;
-}
-
 /* SECTION */
 .section{padding:120px 20px;text-align:center;}
 h2{font-size:36px;margin-bottom:50px;color:#ff9d00;}
 
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:40px;
-}
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;}
 
 .card{
-width:300px;
-padding:35px;
-border-radius:25px;
+width:300px;padding:35px;border-radius:25px;
 background:rgba(255,255,255,.05);
 backdrop-filter:blur(25px);
 border:1px solid rgba(255,140,0,.3);
@@ -142,13 +106,12 @@ transition:.3s;
 }
 .copy-btn:hover{transform:scale(1.05);}
 
-/* MOBILE */
+/* MOBILE PREMIUM */
 @media(max-width:768px){
 .cards{flex-direction:column;align-items:center;}
 .section{padding:90px 15px;}
 nav{padding:15px;font-size:14px;}
 }
-
 footer{
 padding:60px;text-align:center;
 border-top:1px solid rgba(255,140,0,.3);
@@ -158,15 +121,8 @@ background:#050505;
 </head>
 <body>
 
-<!-- VIDEO BACKGROUND -->
-<video autoplay muted loop playsinline id="bgVideo">
-<source src="a.mp4" type="video/mp4">
-</video>
-
-<!-- MUSIC -->
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" src="music.mp3" autoplay loop muted></audio>
 
 <nav>
 <a href="#services">სერვისები</a>
@@ -193,7 +149,7 @@ background:#050505;
 <h2>გადახდის რეკვიზიტები</h2>
 <div class="payment-box">
 <p><b>ბანკი:</b> HashBank</p>
-<p><b>ბარათი:</b> 4787 6401 2507 8950</p>
+<p id="cardNumber"><b>ბარათი:</b> 4787 6401 2507 8950</p>
 <button class="copy-btn" onclick="copyCard()">კოპირება</button>
 </div>
 </section>
@@ -207,8 +163,6 @@ background:#050505;
 © 2026 Digital Studio • Premium Experience
 </footer>
 
-<button class="sound-btn" onclick="toggleSound()">🔊 Sound</button>
-
 <script>
 /* THREE JS BACKGROUND */
 const scene=new THREE.Scene();
@@ -219,7 +173,7 @@ document.body.appendChild(renderer.domElement);
 
 const geometry=new THREE.BufferGeometry();
 const vertices=[];
-for(let i=0;i<4000;i++){
+for(let i=0;i<5000;i++){
 vertices.push((Math.random()-0.5)*2000);
 vertices.push((Math.random()-0.5)*2000);
 vertices.push((Math.random()-0.5)*2000);
@@ -244,15 +198,12 @@ navigator.clipboard.writeText("4787640125078950");
 alert("ბარათი დაკოპირდა ✔");
 }
 
-/* SOUND CONTROL */
-function toggleSound(){
-const music=document.getElementById("bgMusic");
-if(music.paused){
+/* SOUND UNMUTE AFTER CLICK */
+document.addEventListener("click",()=>{
+let music=document.getElementById("bgMusic");
+music.muted=false;
 music.play();
-}else{
-music.pause();
-}
-}
+},{once:true});
 </script>
 
 </body>
