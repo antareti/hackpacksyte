@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="ka">
+<html lang="ge">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ყველაფერი ერთ ლარად | Digital Studio 2026</title>
+<meta name="description" content="Digital Studio 2026 - Premium UX/UI, Python & Automation, Custom solutions.">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
-body{background:#000;color:#fff;overflow-x:hidden;}
-canvas{position:fixed;top:0;left:0;z-index:-1}
+body{background:#000;color:#fff;overflow-x:hidden;scroll-behavior:smooth;}
+canvas{position:fixed;top:0;left:0;z-index:-1;pointer-events:none}
+
+/* LANG SELECT */
+.lang-select{
+position:fixed;top:20px;right:20px;z-index:20;
+background:rgba(0,0,0,0.6);padding:10px;border-radius:20px;
+backdrop-filter:blur(10px);
+}
+.lang-select button{
+margin:0 5px;padding:5px 10px;border:none;border-radius:10px;
+cursor:pointer;color:#fff;background:#ff9d00;font-weight:600;transition:.3s;
+}
+.lang-select button.active{background:#fff;color:#000;}
 
 /* NAV */
 nav{
@@ -64,11 +77,14 @@ text-decoration:none;
 transition:.4s;
 box-shadow:0 0 40px rgba(255,140,0,.6);
 }
-.btn:hover{transform:scale(1.08);}
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 60px rgba(255,174,0,0.9);
+}
 
 /* SECTION */
 .section{padding:120px 20px;text-align:center;}
-h2{font-size:36px;margin-bottom:50px;color:#ff9d00;}
+h2{font-size:36px;margin-bottom:50px;color:#ff9d00;transition:.5s;}
 
 .cards{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;}
 
@@ -77,11 +93,13 @@ width:300px;padding:35px;border-radius:25px;
 background:rgba(255,255,255,.05);
 backdrop-filter:blur(25px);
 border:1px solid rgba(255,140,0,.3);
-transition:.5s;
+transition:.5s, transform .3s;
+cursor:pointer;
 }
 .card:hover{
 transform:translateY(-10px) scale(1.05);
 border:1px solid #ff9d00;
+box-shadow:0 0 20px rgba(255,140,0,0.5);
 }
 
 /* PAYMENT */
@@ -104,7 +122,7 @@ font-weight:600;
 cursor:pointer;
 transition:.3s;
 }
-.copy-btn:hover{transform:scale(1.05);}
+.copy-btn:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(255,174,0,0.7);}
 
 /* MOBILE PREMIUM */
 @media(max-width:768px){
@@ -112,54 +130,66 @@ transition:.3s;
 .section{padding:90px 15px;}
 nav{padding:15px;font-size:14px;}
 }
+
 footer{
 padding:60px;text-align:center;
 border-top:1px solid rgba(255,140,0,.3);
 background:#050505;
 }
+
+/* ANIMATION ON SCROLL */
+[data-animate]{opacity:0;transform:translateY(20px);transition:all .7s ease;}
+[data-animate].visible{opacity:1;transform:translateY(0);}
 </style>
 </head>
 <body>
+
+<!-- LANGUAGE SELECT -->
+<div class="lang-select">
+<button data-lang="ge" class="active">GE</button>
+<button data-lang="ru">RU</button>
+<button data-lang="en">EN</button>
+</div>
 
 <!-- BACKGROUND MUSIC -->
 <audio id="bgMusic" src="music.mp3" autoplay loop muted></audio>
 
 <nav>
-<a href="#services">სერვისები</a>
-<a href="#payment">გადახდა</a>
-<a href="#contact">კონტაქტი</a>
+<a href="#services" data-text-ge="სერვისები" data-text-ru="Сервисы" data-text-en="Services">სერვისები</a>
+<a href="#payment" data-text-ge="გადახდა" data-text-ru="Оплата" data-text-en="Payment">გადახდა</a>
+<a href="#contact" data-text-ge="კონტაქტი" data-text-ru="Контакты" data-text-en="Contact">კონტაქტი</a>
 </nav>
 
-<section class="hero">
-<h1>ყველაფერი ერთ ლარად</h1>
-<p>Digital Studio 2026 • Cinematic Experience</p>
-<a href="https://t.me/ertlarad" target="_blank" class="btn">დამიკავშირდი</a>
+<section class="hero" data-animate>
+<h1 data-text-ge="ყველაფერი ერთ ლარად" data-text-ru="Всё за один лари" data-text-en="Everything for 1 Lari">ყველაფერი ერთ ლარად</h1>
+<p data-text-ge="Digital Studio 2026 • Cinematic Experience" data-text-ru="Digital Studio 2026 • Кинематографический опыт" data-text-en="Digital Studio 2026 • Cinematic Experience">Digital Studio 2026 • Cinematic Experience</p>
+<a href="https://t.me/ertlarad" target="_blank" class="btn" data-text-ge="დამიკავშირდი" data-text-ru="Связаться" data-text-en="Contact Me">დამიკავშირდი</a>
 </section>
 
-<section id="services" class="section">
-<h2>სერვისები</h2>
+<section id="services" class="section" data-animate>
+<h2 data-text-ge="სერვისები" data-text-ru="Сервисы" data-text-en="Services">სერვისები</h2>
 <div class="cards">
-<div class="card"><h3>ვებსაიტები</h3><p>Premium UX/UI დიზაინი</p></div>
-<div class="card"><h3>პროგრამები</h3><p>Python & Automation</p></div>
-<div class="card"><h3>Custom</h3><p>თქვენი იდეა — ჩემი კოდი</p></div>
+<div class="card" data-text-ge="ვებსაიტები • Premium UX/UI დიზაინი" data-text-ru="Вебсайты • Premium UX/UI дизайн" data-text-en="Websites • Premium UX/UI design">ვებსაიტები<br>Premium UX/UI დიზაინი</div>
+<div class="card" data-text-ge="პროგრამები • Python & Automation" data-text-ru="Программы • Python & Automation" data-text-en="Programs • Python & Automation">პროგრამები<br>Python & Automation</div>
+<div class="card" data-text-ge="Custom • თქვენი იდეა — ჩემი კოდი" data-text-ru="Custom • Ваша идея — мой код" data-text-en="Custom • Your idea — my code">Custom<br>თქვენი იდეა — ჩემი კოდი</div>
 </div>
 </section>
 
-<section id="payment" class="section">
-<h2>გადახდის რეკვიზიტები</h2>
+<section id="payment" class="section" data-animate>
+<h2 data-text-ge="გადახდის რეკვიზიტები" data-text-ru="Реквизиты оплаты" data-text-en="Payment Details">გადახდის რეკვიზიტები</h2>
 <div class="payment-box">
-<p><b>ბანკი:</b> HashBank</p>
-<p id="cardNumber"><b>ბარათი:</b> 4787 6401 2507 8950</p>
-<button class="copy-btn" onclick="copyCard()">კოპირება</button>
+<p><b data-text-ge="ბანკი:" data-text-ru="Банк:" data-text-en="Bank:">ბანკი:</b> HashBank</p>
+<p id="cardNumber"><b data-text-ge="ბარათი:" data-text-ru="Карта:" data-text-en="Card:">ბარათი:</b> 4787 6401 2507 8950</p>
+<button class="copy-btn" onclick="copyCard()" data-text-ge="კოპირება" data-text-ru="Скопировать" data-text-en="Copy">კოპირება</button>
 </div>
 </section>
 
-<section id="contact" class="section">
-<h2>კონტაქტი</h2>
-<a href="https://t.me/ertlarad" target="_blank" class="btn">Telegram @ertlarad</a>
+<section id="contact" class="section" data-animate>
+<h2 data-text-ge="კონტაქტი" data-text-ru="Контакты" data-text-en="Contact">კონტაქტი</h2>
+<a href="https://t.me/ertlarad" target="_blank" class="btn" data-text-ge="Telegram @ertlarad" data-text-ru="Telegram @ertlarad" data-text-en="Telegram @ertlarad">Telegram @ertlarad</a>
 </section>
 
-<footer>
+<footer data-animate>
 © 2026 Digital Studio • Premium Experience
 </footer>
 
@@ -204,6 +234,40 @@ let music=document.getElementById("bgMusic");
 music.muted=false;
 music.play();
 },{once:true});
+
+/* SCROLL ANIMATION */
+function onScrollAnimate(){
+const elements=document.querySelectorAll('[data-animate]');
+elements.forEach(el=>{
+const rect=el.getBoundingClientRect();
+if(rect.top < window.innerHeight*0.85){el.classList.add('visible');}
+});
+}
+window.addEventListener('scroll',onScrollAnimate);
+onScrollAnimate();
+
+/* LANGUAGE SWITCH */
+const langButtons=document.querySelectorAll('.lang-select button');
+langButtons.forEach(btn=>{
+btn.addEventListener('click',()=>{
+langButtons.forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+const lang=btn.dataset.lang;
+document.querySelectorAll('[data-text-ge],[data-text-ru],[data-text-en]').forEach(el=>{
+if(lang==='ge') el.textContent=el.dataset.textGe;
+else if(lang==='ru') el.textContent=el.dataset.textRu;
+else if(lang==='en') el.textContent=el.dataset.textEn;
+});
+});
+});
+
+/* PARALLAX MOUSE PARTICLES */
+document.addEventListener('mousemove',(e)=>{
+const x=(e.clientX/window.innerWidth-0.5)*50;
+const y=(e.clientY/window.innerHeight-0.5)*50;
+particles.rotation.x = y * 0.02;
+particles.rotation.y = x * 0.02;
+});
 </script>
 
 </body>
