@@ -76,6 +76,7 @@ font-weight:700;
 text-decoration:none;
 transition:.4s;
 box-shadow:0 0 40px rgba(255,140,0,.6);
+display:inline-block;
 }
 .btn:hover{
 transform:scale(1.08);
@@ -124,7 +125,36 @@ transition:.3s;
 }
 .copy-btn:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(255,174,0,0.7);}
 
-/* MOBILE PREMIUM */
+/* AD BLOCK */
+.ad-section{
+padding:100px 20px;
+text-align:center;
+}
+.ad-box{
+max-width:600px;
+margin:0 auto;
+padding:40px;
+border-radius:30px;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(30px);
+border:1px solid rgba(255,140,0,0.4);
+transition:.4s;
+}
+.ad-box:hover{
+transform:scale(1.03);
+box-shadow:0 0 50px rgba(255,140,0,0.6);
+}
+.ad-box h3{
+font-size:28px;
+margin-bottom:20px;
+color:#ffae00;
+}
+.ad-box p{
+opacity:.85;
+margin-bottom:25px;
+}
+
+/* MOBILE */
 @media(max-width:768px){
 .cards{flex-direction:column;align-items:center;}
 .section{padding:90px 15px;}
@@ -137,61 +167,66 @@ border-top:1px solid rgba(255,140,0,.3);
 background:#050505;
 }
 
-/* ANIMATION ON SCROLL */
 [data-animate]{opacity:0;transform:translateY(20px);transition:all .7s ease;}
 [data-animate].visible{opacity:1;transform:translateY(0);}
 </style>
 </head>
 <body>
 
-<!-- VIDEO BACKGROUND -->
 <video autoplay muted loop id="bgVideo" style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;">
 <source src="a.mp4" type="video/mp4">
 </video>
 
-<!-- LANGUAGE SELECT -->
 <div class="lang-select">
 <button data-lang="ge" class="active">GE</button>
 <button data-lang="ru">RU</button>
 <button data-lang="en">EN</button>
 </div>
 
-<!-- BACKGROUND MUSIC -->
 <audio id="bgMusic" src="music.mp3" autoplay loop muted></audio>
 
 <nav>
-<a href="#services" data-text-ge="სერვისები" data-text-ru="Сервисы" data-text-en="Services">სერვისები</a>
-<a href="#payment" data-text-ge="გადახდა" data-text-ru="Оплата" data-text-en="Payment">გადახდა</a>
-<a href="#contact" data-text-ge="კონტაქტი" data-text-ru="Контакты" data-text-en="Contact">კონტაქტი</a>
+<a href="#services">სერვისები</a>
+<a href="#payment">გადახდა</a>
+<a href="#contact">კონტაქტი</a>
 </nav>
 
 <section class="hero" data-animate>
-<h1 data-text-ge="ყველაფერი ერთ ლარად" data-text-ru="Всё за один лари" data-text-en="Everything for 1 Lari">ყველაფერი ერთ ლარად</h1>
-<p data-text-ge="Digital Studio 2026 • Cinematic Experience" data-text-ru="Digital Studio 2026 • Кинематографический опыт" data-text-en="Digital Studio 2026 • Cinematic Experience">Digital Studio 2026 • Cinematic Experience</p>
-<a href="https://t.me/ertlarad" target="_blank" class="btn" data-text-ge="დამიკავშირდი" data-text-ru="Связаться" data-text-en="Contact Me">დამიკავშირდი</a>
+<h1>ყველაფერი ერთ ლარად</h1>
+<p>Digital Studio 2026 • Cinematic Experience</p>
+<a href="https://t.me/ertlarad" target="_blank" class="btn">დამიკავშირდი</a>
 </section>
 
 <section id="services" class="section" data-animate>
-<h2 data-text-ge="სერვისები" data-text-ru="Сервисы" data-text-en="Services">სერვისები</h2>
+<h2>სერვისები</h2>
 <div class="cards">
-<div class="card" data-text-ge="ვებსაიტები • Premium UX/UI დიზაინი" data-text-ru="Вебсайты • Premium UX/UI дизайн" data-text-en="Websites • Premium UX/UI design">ვებსაიტები<br>Premium UX/UI დიზაინი</div>
-<div class="card" data-text-ge="პროგრამები • Python & Automation" data-text-ru="Программы • Python & Automation" data-text-en="Programs • Python & Automation">პროგრამები<br>Python & Automation</div>
-<div class="card" data-text-ge="Custom • თქვენი იდეა — ჩემი კოდი" data-text-ru="Custom • Ваша идея — мой код" data-text-en="Custom • Your idea — my code">Custom<br>თქვენი იდეა — ჩემი კოდი</div>
+<div class="card">ვებსაიტები<br>Premium UX/UI დიზაინი</div>
+<div class="card">პროგრამები<br>Python & Automation</div>
+<div class="card">Custom<br>თქვენი იდეა — ჩემი კოდი</div>
 </div>
 </section>
 
 <section id="payment" class="section" data-animate>
-<h2 data-text-ge="გადახდის რეკვიზიტები" data-text-ru="Реквизиты оплаты" data-text-en="Payment Details">გადახდის რეკვიზიტები</h2>
+<h2>გადახდის რეკვიზიტები</h2>
 <div class="payment-box">
-<p><b data-text-ge="ბანკი:" data-text-ru="Банк:" data-text-en="Bank:">ბანკი:</b> HashBank</p>
-<p id="cardNumber"><b data-text-ge="ბარათი:" data-text-ru="Карта:" data-text-en="Card:">ბარათი:</b> 4787 6401 2507 8950</p>
-<button class="copy-btn" onclick="copyCard()" data-text-ge="კოპირება" data-text-ru="Скопировать" data-text-en="Copy">კოპირება</button>
+<p><b>ბანკი:</b> HashBank</p>
+<p id="cardNumber"><b>ბარათი:</b> 4787 6401 2507 8950</p>
+<button class="copy-btn" onclick="copyCard()">კოპირება</button>
 </div>
 </section>
 
 <section id="contact" class="section" data-animate>
-<h2 data-text-ge="კონტაქტი" data-text-ru="Контакты" data-text-en="Contact">კონტაქტი</h2>
-<a href="https://t.me/ertlarad" target="_blank" class="btn" data-text-ge="Telegram @ertlarad" data-text-ru="Telegram @ertlarad" data-text-en="Telegram @ertlarad">Telegram @ertlarad</a>
+<h2>კონტაქტი</h2>
+<a href="https://t.me/ertlarad" target="_blank" class="btn">Telegram @ertlarad</a>
+</section>
+
+<!-- REKLAMA -->
+<section class="ad-section" data-animate>
+<div class="ad-box">
+<h3>💱 Лучшие курсы обмена?</h3>
+<p>Мониторинг проверенных обменников. Сравни, выбери лучший курс и экономь больше.</p>
+<a target="_blank" href="https://www.bestchange.net/?p=1339416" class="btn">Перейти на BestChange</a>
+</div>
 </section>
 
 <footer data-animate>
@@ -199,7 +234,6 @@ background:#050505;
 </footer>
 
 <script>
-/* THREE JS BACKGROUND */
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
 const renderer=new THREE.WebGLRenderer({alpha:true});
@@ -227,20 +261,11 @@ renderer.render(scene,camera);
 }
 animate();
 
-/* COPY CARD */
 function copyCard(){
 navigator.clipboard.writeText("4787640125078950");
 alert("ბარათი დაკოპირდა ✔");
 }
 
-/* SOUND UNMUTE AFTER CLICK */
-document.addEventListener("click",()=>{
-let music=document.getElementById("bgMusic");
-music.muted=false;
-music.play();
-},{once:true});
-
-/* SCROLL ANIMATION */
 function onScrollAnimate(){
 const elements=document.querySelectorAll('[data-animate]');
 elements.forEach(el=>{
@@ -250,29 +275,6 @@ if(rect.top < window.innerHeight*0.85){el.classList.add('visible');}
 }
 window.addEventListener('scroll',onScrollAnimate);
 onScrollAnimate();
-
-/* LANGUAGE SWITCH */
-const langButtons=document.querySelectorAll('.lang-select button');
-langButtons.forEach(btn=>{
-btn.addEventListener('click',()=>{
-langButtons.forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-const lang=btn.dataset.lang;
-document.querySelectorAll('[data-text-ge],[data-text-ru],[data-text-en]').forEach(el=>{
-if(lang==='ge') el.textContent=el.dataset.textGe;
-else if(lang==='ru') el.textContent=el.dataset.textRu;
-else if(lang==='en') el.textContent=el.dataset.textEn;
-});
-});
-});
-
-/* PARALLAX MOUSE PARTICLES */
-document.addEventListener('mousemove',(e)=>{
-const x=(e.clientX/window.innerWidth-0.5)*50;
-const y=(e.clientY/window.innerHeight-0.5)*50;
-particles.rotation.x = y * 0.02;
-particles.rotation.y = x * 0.02;
-});
 </script>
 
 </body>
