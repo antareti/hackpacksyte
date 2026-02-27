@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="ge">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ყველაფერი ერთ ლარად | Digital Studio 2026</title>
-<meta name="description" content="Digital Studio 2026 - Premium UX/UI, Python & Automation, Custom solutions.">
+
+<title>Лучший курс USDT → GEL | Digital Studio 2026</title>
+
+<meta name="description" content="Лучший курс USDT к GEL сегодня. Мониторинг обменников, выгодный обмен криптовалюты в Грузии. Проверенные сервисы.">
+
+<meta name="keywords" content="USDT GEL курс, лучший курс USDT, обмен USDT Грузия, мониторинг обменников">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
@@ -14,60 +18,46 @@
 body{background:#000;color:#fff;overflow-x:hidden;scroll-behavior:smooth;}
 canvas{position:fixed;top:0;left:0;z-index:-1;pointer-events:none}
 
-/* LANG SELECT */
-.lang-select{
-position:fixed;top:20px;right:20px;z-index:20;
-background:rgba(0,0,0,0.6);padding:10px;border-radius:20px;
-backdrop-filter:blur(10px);
+video{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+object-fit:cover;
+z-index:-2;
 }
-.lang-select button{
-margin:0 5px;padding:5px 10px;border:none;border-radius:10px;
-cursor:pointer;color:#fff;background:#ff9d00;font-weight:600;transition:.3s;
-}
-.lang-select button.active{background:#fff;color:#000;}
 
 /* NAV */
 nav{
-position:fixed;width:100%;top:0;
+position:fixed;
+top:0;
+width:100%;
 background:rgba(0,0,0,0.6);
 backdrop-filter:blur(20px);
-padding:18px;text-align:center;z-index:10;
+padding:18px;
+text-align:center;
+z-index:10;
 border-bottom:1px solid rgba(255,140,0,0.3);
 }
 nav a{
-margin:0 15px;text-decoration:none;
-color:#ff9d00;font-weight:600;
+margin:0 15px;
+color:#ff9d00;
+text-decoration:none;
+font-weight:600;
 transition:.3s;
 }
 nav a:hover{color:#fff}
 
-/* HERO */
-.hero{
-height:100vh;display:flex;flex-direction:column;
-justify-content:center;align-items:center;text-align:center;
-padding:20px;
-}
-.hero h1{
-font-size:clamp(40px,6vw,80px);
-font-weight:800;
-background:linear-gradient(90deg,#ff6a00,#ffae00,#ff6a00);
-background-size:200%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:gradientMove 6s linear infinite;
-}
-@keyframes gradientMove{
-0%{background-position:0%}
-100%{background-position:200%}
-}
-.hero p{
-margin-top:25px;
-font-size:clamp(16px,2vw,22px);
-opacity:.85;
+/* SECTION */
+.section{padding:120px 20px;text-align:center;}
+h1,h2{
+color:#ff9d00;
+margin-bottom:30px;
 }
 
+/* BUTTON */
 .btn{
-margin-top:40px;
+display:inline-block;
+margin-top:30px;
 padding:16px 40px;
 border-radius:50px;
 background:linear-gradient(90deg,#ff6a00,#ffae00);
@@ -76,62 +66,15 @@ font-weight:700;
 text-decoration:none;
 transition:.4s;
 box-shadow:0 0 40px rgba(255,140,0,.6);
-display:inline-block;
 }
 .btn:hover{
 transform:scale(1.08);
 box-shadow:0 0 60px rgba(255,174,0,0.9);
 }
 
-/* SECTION */
-.section{padding:120px 20px;text-align:center;}
-h2{font-size:36px;margin-bottom:50px;color:#ff9d00;transition:.5s;}
-
-.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;}
-
+/* CARD */
 .card{
-width:300px;padding:35px;border-radius:25px;
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(25px);
-border:1px solid rgba(255,140,0,.3);
-transition:.5s, transform .3s;
-cursor:pointer;
-}
-.card:hover{
-transform:translateY(-10px) scale(1.05);
-border:1px solid #ff9d00;
-box-shadow:0 0 20px rgba(255,140,0,0.5);
-}
-
-/* PAYMENT */
-.payment-box{
-display:inline-block;
-padding:30px;
-border-radius:20px;
-background:rgba(255,255,255,.05);
-border:1px solid #ff6a00;
-margin-top:30px;
-}
-.copy-btn{
-margin-top:15px;
-padding:10px 25px;
-border:none;
-border-radius:30px;
-background:#ff9d00;
-color:black;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
-}
-.copy-btn:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(255,174,0,0.7);}
-
-/* AD BLOCK */
-.ad-section{
-padding:100px 20px;
-text-align:center;
-}
-.ad-box{
-max-width:600px;
+max-width:700px;
 margin:0 auto;
 padding:40px;
 border-radius:30px;
@@ -140,100 +83,103 @@ backdrop-filter:blur(30px);
 border:1px solid rgba(255,140,0,0.4);
 transition:.4s;
 }
-.ad-box:hover{
-transform:scale(1.03);
+.card:hover{
+transform:scale(1.02);
 box-shadow:0 0 50px rgba(255,140,0,0.6);
 }
-.ad-box h3{
-font-size:28px;
-margin-bottom:20px;
-color:#ffae00;
-}
-.ad-box p{
-opacity:.85;
-margin-bottom:25px;
-}
 
-/* MOBILE */
-@media(max-width:768px){
-.cards{flex-direction:column;align-items:center;}
-.section{padding:90px 15px;}
-nav{padding:15px;font-size:14px;}
-}
-
+/* FOOTER */
 footer{
-padding:60px;text-align:center;
+padding:60px;
+text-align:center;
 border-top:1px solid rgba(255,140,0,.3);
 background:#050505;
 }
 
-[data-animate]{opacity:0;transform:translateY(20px);transition:all .7s ease;}
-[data-animate].visible{opacity:1;transform:translateY(0);}
+/* MOBILE */
+@media(max-width:768px){
+.section{padding:90px 15px;}
+}
 </style>
 </head>
 <body>
 
-<video autoplay muted loop id="bgVideo" style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;">
+<!-- VIDEO BACKGROUND -->
+<video autoplay muted loop>
 <source src="a.mp4" type="video/mp4">
 </video>
 
-<div class="lang-select">
-<button data-lang="ge" class="active">GE</button>
-<button data-lang="ru">RU</button>
-<button data-lang="en">EN</button>
-</div>
-
-<audio id="bgMusic" src="music.mp3" autoplay loop muted></audio>
-
+<!-- NAV -->
 <nav>
-<a href="#services">სერვისები</a>
-<a href="#payment">გადახდა</a>
-<a href="#contact">კონტაქტი</a>
+<a href="#seo">Лучший курс</a>
+<a href="#services">Сервисы</a>
+<a href="#contact">Контакты</a>
 </nav>
 
-<section class="hero" data-animate>
-<h1>ყველაფერი ერთ ლარად</h1>
-<p>Digital Studio 2026 • Cinematic Experience</p>
-<a href="https://t.me/ertlarad" target="_blank" class="btn">დამიკავშირდი</a>
+<!-- HERO -->
+<section class="section">
+<h1>Лучший курс USDT → GEL</h1>
+<p>Мониторинг обменников • Проверенные курсы • Экономия до 5%</p>
+<a href="https://www.bestchange.net/?p=1339416" target="_blank" class="btn">
+Проверить курс сейчас
+</a>
 </section>
 
-<section id="services" class="section" data-animate>
-<h2>სერვისები</h2>
-<div class="cards">
-<div class="card">ვებსაიტები<br>Premium UX/UI დიზაინი</div>
-<div class="card">პროგრამები<br>Python & Automation</div>
-<div class="card">Custom<br>თქვენი იდეა — ჩემი კოდი</div>
+<!-- SEO BLOCK -->
+<section id="seo" class="section">
+<h2>Где выгодно обменять USDT на GEL?</h2>
+<div class="card">
+<p>
+Если вы ищете самый выгодный курс обмена USDT к GEL в Грузии —
+лучше сравнить предложения сразу всех обменников.
+</p>
+<p>
+Мониторинг показывает актуальные курсы, резервы и отзывы пользователей.
+Это быстрее и безопаснее, чем искать вручную.
+</p>
+
+<a target="_blank"
+href="https://www.bestchange.net/?p=1339416"
+class="btn">
+Найти лучший курс
+</a>
+
+<br><br>
+
+<a target="_blank"
+href="https://www.bestchange.net/"
+onclick="this.href='https://www.bestchange.net/?p=1339416'">
+www.bestchange.net
+</a>
+
 </div>
 </section>
 
-<section id="payment" class="section" data-animate>
-<h2>გადახდის რეკვიზიტები</h2>
-<div class="payment-box">
-<p><b>ბანკი:</b> HashBank</p>
-<p id="cardNumber"><b>ბარათი:</b> 4787 6401 2507 8950</p>
-<button class="copy-btn" onclick="copyCard()">კოპირება</button>
+<!-- SERVICES -->
+<section id="services" class="section">
+<h2>Наши сервисы</h2>
+<div class="card">
+<p>• Создание сайтов</p>
+<p>• UX/UI дизайн</p>
+<p>• Python & Automation</p>
+<p>• Custom решения</p>
 </div>
 </section>
 
-<section id="contact" class="section" data-animate>
-<h2>კონტაქტი</h2>
-<a href="https://t.me/ertlarad" target="_blank" class="btn">Telegram @ertlarad</a>
+<!-- CONTACT -->
+<section id="contact" class="section">
+<h2>Связаться</h2>
+<a href="https://t.me/ertlarad" target="_blank" class="btn">
+Telegram @ertlarad
+</a>
 </section>
 
-<!-- REKLAMA -->
-<section class="ad-section" data-animate>
-<div class="ad-box">
-<h3>💱 Лучшие курсы обмена?</h3>
-<p>Мониторинг проверенных обменников. Сравни, выбери лучший курс и экономь больше.</p>
-<a target="_blank" href="https://www.bestchange.net/?p=1339416" class="btn">Перейти на BestChange</a>
-</div>
-</section>
-
-<footer data-animate>
-© 2026 Digital Studio • Premium Experience
+<footer>
+© 2026 Digital Studio • Crypto Monitoring
 </footer>
 
 <script>
+/* THREE JS PARTICLES */
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
 const renderer=new THREE.WebGLRenderer({alpha:true});
@@ -242,39 +188,24 @@ document.body.appendChild(renderer.domElement);
 
 const geometry=new THREE.BufferGeometry();
 const vertices=[];
-for(let i=0;i<5000;i++){
-vertices.push((Math.random()-0.5)*2000);
-vertices.push((Math.random()-0.5)*2000);
-vertices.push((Math.random()-0.5)*2000);
+for(let i=0;i<3000;i++){
+vertices.push((Math.random()-0.5)*1500);
+vertices.push((Math.random()-0.5)*1500);
+vertices.push((Math.random()-0.5)*1500);
 }
 geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
 const material=new THREE.PointsMaterial({color:0xff9d00,size:2});
 const particles=new THREE.Points(geometry,material);
 scene.add(particles);
-camera.position.z=500;
+camera.position.z=400;
 
 function animate(){
 requestAnimationFrame(animate);
-particles.rotation.x+=0.0005;
-particles.rotation.y+=0.0005;
+particles.rotation.x+=0.0004;
+particles.rotation.y+=0.0004;
 renderer.render(scene,camera);
 }
 animate();
-
-function copyCard(){
-navigator.clipboard.writeText("4787640125078950");
-alert("ბარათი დაკოპირდა ✔");
-}
-
-function onScrollAnimate(){
-const elements=document.querySelectorAll('[data-animate]');
-elements.forEach(el=>{
-const rect=el.getBoundingClientRect();
-if(rect.top < window.innerHeight*0.85){el.classList.add('visible');}
-});
-}
-window.addEventListener('scroll',onScrollAnimate);
-onScrollAnimate();
 </script>
 
 </body>
